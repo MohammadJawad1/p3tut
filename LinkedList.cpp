@@ -170,7 +170,7 @@ void LinkedList<T>::push_back(const T& value)
         {
             current = current -> next_;
         }
-        current -> next = newNode;
+        current -> next_ = newNode;
     }
     size_++;
 
@@ -188,7 +188,7 @@ void LinkedList<T>::push_back(const T& value)
 template<class T>
 void LinkedList<T>::insert(size_t index, const T& value)
 {
-    if (index > size_)
+    if (index >= size_)
     {
         throw std::out_of_range("Index exceeds range of linked list");
     }
@@ -209,7 +209,7 @@ void LinkedList<T>::insert(size_t index, const T& value)
         {
             current = current -> next_;
         }
-        current -> next = newNode;
+        current -> next_ = newNode;
     }
     size_++;
     
@@ -247,7 +247,6 @@ void LinkedList<T>::erase(size_t index)
     }
 
     delete deletePtr;
-    deletePtr = nullptr;
     --size_;
 }
     /**
