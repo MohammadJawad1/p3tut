@@ -7,9 +7,9 @@
  * otherwise, returns the size of the internal vector
  * (i.e. an index which is out of bounds of the actual vector).
  */
-std::size_t VectorFolder::indexOf(const std::string& filename) const
+size_t VectorFolder::indexOf(const std::string& filename) const
 {
-    for (std::size_t i = 0; i < files_.size(); i++)
+    for (size_t i = 0; i < files_.size(); i++)
     {
         if (files_[i].getFilename() == filename)
         {
@@ -22,7 +22,7 @@ std::size_t VectorFolder::indexOf(const std::string& filename) const
  * @brief Gets the total number of files currently in the folder.
  * @return The count of files as a size_t.
  */
-std::size_t VectorFolder::getFileCount() const
+size_t VectorFolder::getFileCount() const
 {
     return files_.size();
 }
@@ -35,7 +35,7 @@ std::size_t VectorFolder::getFileCount() const
  */
 File VectorFolder::findFile(const std::string& filename) const 
 {
-    std::size_t index = indexOf(filename);
+    size_t index = indexOf(filename);
     if (index == files_.size())
     {
         throw std::runtime_error("File not found: " + filename);
@@ -70,7 +70,7 @@ bool VectorFolder::addFile(const File& file)
  */
 bool VectorFolder::removeFile(const std::string& filename) 
 {
-    std::size_t index = indexOf(filename);
+    size_t index = indexOf(filename);
     if(index == files_.size())
     {
         return false;

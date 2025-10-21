@@ -52,7 +52,7 @@ std::string LinkedList<T>::toString() const
     ss << "{ ";
 
     Node<T>* p = head_;
-    for (std::size_t i = 0; i < size(); i++) {
+    for (size_t i = 0; i < size(); i++) {
         ss << p->value_;
 
         if (i + 1 != size()) {
@@ -71,7 +71,7 @@ std::string LinkedList<T>::toString() const
 * @return The number of elements (size_t).
 */
 template <class T>
-std::size_t LinkedList<T>::size() const
+size_t LinkedList<T>::size() const
 {
     return size_;
 }
@@ -129,7 +129,7 @@ T LinkedList<T>::back() const
      * @throws std::out_of_range if the index is invalid (eg. too large).
      */
 template <class T>
-T LinkedList<T>::at(std::size_t index) const
+T LinkedList<T>::at(size_t index) const
 {
     if (index >= size_)
     {
@@ -174,7 +174,7 @@ void LinkedList<T>::push_back(const T& value)
      *    an error though.
      */
 template<class T>
-void LinkedList<T>::insert(std::size_t index, const T& value)
+void LinkedList<T>::insert(size_t index, const T& value)
 {
     if (index > size_)
     {
@@ -193,7 +193,7 @@ void LinkedList<T>::insert(std::size_t index, const T& value)
     else
     {
         Node<T>* current = head_;
-        for (std::size_t i = 0; i < index - 1; i++)
+        for (size_t i = 0; i < index - 1; i++)
         {
             newNode -> next_ = current -> next_;
             current -> next_ = newNode;
@@ -215,7 +215,7 @@ void LinkedList<T>::insert(std::size_t index, const T& value)
      * @throws std::out_of_range if index is greater than or equal to the size
      */
 template <class T>
-void LinkedList<T>::erase(std::size_t index)
+void LinkedList<T>::erase(size_t index)
 {
     if (index >= size_)
     {
@@ -235,7 +235,7 @@ void LinkedList<T>::erase(std::size_t index)
     }
     else{
         Node<T>* predecessor = head_;
-        for (std::size_t i = 0; i < index - 1; i++)
+        for (size_t i = 0; i < index - 1; i++)
         {
             predecessor = predecessor -> next_;
         }

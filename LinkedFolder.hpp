@@ -19,14 +19,14 @@ private:
      * (i.e. an index which is out of bounds of the actual LinkedList).
      */
 
-    std::size_t indexOf(const std::string& filename) const;
+    size_t indexOf(const std::string& filename) const;
 
 public:
     /**
      * @brief Gets the total number of files currently in the folder.
      * @return The count of files as a size_t.
      */
-    std::size_t getFileCount() const;
+    size_t getFileCount() const;
 
     /**
      * @brief Searches for a file by its name.

@@ -25,7 +25,7 @@ class LinkedList {
 private:
     Node<T>* head_ { nullptr };
     Node<T>* tail_ { nullptr };
-    std::size_t size_ { 0 };
+    size_t size_ { 0 };
 
 public:
     /**
@@ -57,7 +57,7 @@ public:
     * @brief Returns the number of elements in the list.
     * @return The number of elements (size_t).
     */
-    std::size_t size() const;
+    size_t size() const;
     
     /**
     * @brief Checks if the list is empty (ie. contains no elements).
@@ -88,7 +88,7 @@ public:
      *
      * @throws std::out_of_range if the index is invalid (eg. too large).
      */
-    T at(std::size_t index) const;
+    T at(size_t index) const;
     /**
      * @brief Adds an element to the end of the list.
      * @param value A const reference to the value (of type T)
@@ -105,14 +105,14 @@ public:
      *    that's fine! We just insert at the end. Inserting at index 2 would raise
      *    an error though.
      */
-    void insert(std::size_t index, const T& value);
+    void insert(size_t index, const T& value);
     /**
      * @brief Erases an element at a specific index.
      * @param index The zero-based index of the element to erase (as asize_t).
      *
      * @throws std::out_of_range if index is greater than or equal to the size
      */
-    void erase(std::size_t index);
+    void erase(size_t index);
     /**
      * @brief Removes all elements from the list.
      */

@@ -8,9 +8,9 @@
      * otherwise, returns the size of the internal LinkedList
      * (i.e. an index which is out of bounds of the actual LinkedList).
      */
-std::size_t LinkedFolder::indexOf(const std::string& filename) const
+size_t LinkedFolder::indexOf(const std::string& filename) const
 {
-    for (std::size_t i = 0; i< files_.size(); i++)
+    for (size_t i = 0; i< files_.size(); i++)
     {
         if (files_.at(i).getFilename() == filename)
         {
@@ -20,7 +20,7 @@ std::size_t LinkedFolder::indexOf(const std::string& filename) const
     return files_.size();
 }
 
-std::size_t LinkedFolder::getFileCount() const 
+size_t LinkedFolder::getFileCount() const 
 {
     return files_.size();
 }
@@ -34,7 +34,7 @@ std::size_t LinkedFolder::getFileCount() const
      */
 File LinkedFolder::findFile(const std::string& filename) const
 {
-    std::size_t index = indexOf(filename);
+    size_t index = indexOf(filename);
     if (index == files_.size())
     {
         throw std::runtime_error("file not found: " + filename);
@@ -71,7 +71,7 @@ bool LinkedFolder::addFile(const File& file)
 
 bool LinkedFolder::removeFile(const std::string& filename)
 {
-    std::size_t index = indexOf(filename);
+    size_t index = indexOf(filename);
     if (index == files_.size())
     {
         return false;
