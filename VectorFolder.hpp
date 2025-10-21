@@ -7,7 +7,6 @@
 #include <stdexcept>
 #include <cstddef>
 #include <vector>
-#include <memory>
 #include "File.hpp"
 #include "LinkedList.hpp"
 
@@ -31,7 +30,7 @@ public:
  *
  * Initializes an empty VectorFolder with no files.
  */
-VectorFolder() = default;
+VectorFolder();
 /**
  * @brief Gets the total number of files currently in the folder.
  * @return The count of files as a size_t.
@@ -73,5 +72,5 @@ bool removeFile(const std::string& filename);
  * @return A vector of File objects representing the files in the VectorFolder
  */
 
-std::vector<File> getFiles() const;
+const std::vector<File>& getFiles() const;
 };

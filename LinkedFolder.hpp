@@ -5,7 +5,6 @@
 #include <string>
 #include <cstddef>
 #include <stdexcept>
-#include <memory>
 #include "File.hpp"
 #include "LinkedList.hpp"
 
@@ -25,7 +24,7 @@ private:
     size_t indexOf(const std::string& filename) const;
 
 public:
-    LinkedFolder() = default;
+    //LinkedFolder() = default;
     /**
      * @brief Gets the total number of files currently in the folder.
      * @return The count of files as a size_t.

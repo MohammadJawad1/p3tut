@@ -122,7 +122,12 @@ T LinkedList<T>::back()
     {
         throw std::runtime_error("List is empty");
     }
-    return tail_ ->value_;
+    Node<T>* current = head_;
+    while (current -> next_ != nullptr)
+    {
+        current = current -> next_; //traversing to the back by while loop
+    }
+    return current -> value_;
 }
     /**
      * @brief Access an element at a specific index.
@@ -139,7 +144,7 @@ T LinkedList<T>::at(size_t index) const
         throw std::out_of_range("Index exceeds range of linked list");
     }
     Node<T>* current = head_;
-    for (std::size_t i = 0; i < index; i++)
+    for (size_t i = 0; i < index; i++)
     {
         current = current -> next_;
     }
@@ -157,14 +162,18 @@ void LinkedList<T>::push_back(const T& value)
     if(empty())
     {
         head_ = newNode;
-        tail_ = newNode;
     }
     else
     {
-        tail_ -> next_ = newNode;
-        tail_ = newNode;
+        Node<T>* current = head_;
+        while (current -> next_ != nullptr)
+        {
+            current = current -> next_;
+        }
+        current -> next = newNode;
     }
     size_++;
+
 }
     /**
      * @brief Inserts an element at a specific index.
@@ -188,7 +197,7 @@ void LinkedList<T>::insert(size_t index, const T& value)
     {
         newNode -> next_ = head_;
         head_ = newNode;
-        if (size_ == 0)
+        if (size_ == 0) //if this is the only node added
         {
             tail_ = newNode;
         }
@@ -198,17 +207,12 @@ void LinkedList<T>::insert(size_t index, const T& value)
         Node<T>* current = head_;
         for (size_t i = 0; i < index - 1; i++)
         {
-            newNode -> next_ = current -> next_;
-            current -> next_ = newNode;
-
-            if (index == size_)
-            {
-                tail_ = newNode;
-            }
+            current = current -> next_;
         }
-
+        current -> next = newNode;
     }
     size_++;
+    
 
 }
     /**
@@ -224,17 +228,12 @@ void LinkedList<T>::erase(size_t index)
     {
         throw std::out_of_range("Index exceeds range of linked list");
     }
-
     Node<T>* deletePtr = nullptr;
     if (index == 0)
     {
         deletePtr = head_;
         head_ = head_ -> next_;
 
-        if (head_ == nullptr)
-        {
-            tail_ = nullptr;
-        }
     }
     else{
         Node<T>* predecessor = head_;
@@ -245,15 +244,11 @@ void LinkedList<T>::erase(size_t index)
         deletePtr = predecessor -> next_;
         predecessor -> next_ = deletePtr -> next_;
 
-        if (deletePtr == tail_)
-        {
-            tail_ = predecessor;
-        }
     }
 
     delete deletePtr;
     deletePtr = nullptr;
-    size_--;
+    --size_;
 }
     /**
      * @brief Erases an element at a specific index.
@@ -264,19 +259,10 @@ void LinkedList<T>::erase(size_t index)
 template <class T>
 void LinkedList<T>::clear()
 {
-    Node<T>* current = head_;
-    Node<T>* nextNode = nullptr;
-
-    while (current != nullptr)
+    while(!empty())
     {
-        nextNode = current -> next_;
-        delete current;
-        current = nextNode;
+        erase(0);
     }
-
-    head_ = nullptr;
-    tail_ = nullptr;
-    size_ = 0;
 }
     /**
      * @brief Destructor: cleans up all nodes to prevent memory leaks.

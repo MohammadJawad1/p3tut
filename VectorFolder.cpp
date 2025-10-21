@@ -2,6 +2,7 @@
 //10/21/2025
 //vector folder implementation
 #include "VectorFolder.hpp"
+VectorFolder::VectorFolder() {};
 /**
  * @brief Finds the index of a file with the given filename.
  * @param filename The name of the file to search for.
@@ -86,7 +87,7 @@ bool VectorFolder::removeFile(const std::string& filename)
  * @brief Access the underlying files vector
  * @return A vector of File objects representing the files in the VectorFolder
  */
-std::vector<File> VectorFolder::getFiles() const 
+const std::vector<File>& VectorFolder::getFiles() const 
 {
     return files_;
 }
