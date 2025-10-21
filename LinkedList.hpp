@@ -1,7 +1,11 @@
+//Mohammad Jawad
+//10/21/25
+//linkedlist implementation
 #pragma once
 #include <cstddef>
 #include <sstream>
 #include <stdexcept>
+#include <string>
 template <class T>
 struct Node {
     T value_;
@@ -68,19 +72,19 @@ public:
      * @brief Access the node pointing to the head of the linked list
      * @return A pointer to the head node (or nullptr if the list is empty)
      */
-    Node<T>* head() const;
+    Node<T>* head();
     /**
      * @brief Access the first element.
      * @return The first element's value (of type T, NOT the node).
      * @throws std::runtime_error if the list is empty.
      */
-    T front() const;
+    T front();
     /**
      * @brief Access the last element.
      * @return The last element's value (of type T, , NOT the node).
      * @throws std::runtime_error if the list is empty.
      */
-    T back() const;
+    T back();
     /**
      * @brief Access an element at a specific index.
      * @param index The zero-based index of the element (size_t).

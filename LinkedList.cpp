@@ -1,3 +1,6 @@
+//Mohammad Jawad
+//10/21/2025
+//for linked list implementation
 #include "LinkedList.hpp"
 
 /**
@@ -91,7 +94,7 @@ bool LinkedList<T>::empty() const
  * @return A pointer to the head node (or nullptr if the list is empty)
  */
 template <class T>
-Node<T>* LinkedList<T>::head() const{
+Node<T>* LinkedList<T>::head(){
     return head_;
 }
 /**
@@ -100,7 +103,7 @@ Node<T>* LinkedList<T>::head() const{
  * @throws std::runtime_error if the list is empty.
  */
 template <class T>
-T LinkedList<T>::front() const{
+T LinkedList<T>::front(){
     if (empty())
     {
         throw std::runtime_error("front() called on an empty linked list.");
@@ -113,7 +116,7 @@ T LinkedList<T>::front() const{
 * @throws std::runtime_error if the list is empty.
 */
 template <class T>
-T LinkedList<T>::back() const
+T LinkedList<T>::back()
 {
     if (empty()) 
     {

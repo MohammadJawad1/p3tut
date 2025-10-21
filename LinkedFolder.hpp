@@ -1,10 +1,13 @@
+//Mohammad Jawad
+//10/21/2025
+//for linked
 #pragma once
 #include <string>
 #include <cstddef>
 #include <stdexcept>
+#include <memory>
 #include "File.hpp"
 #include "LinkedList.hpp"
-#include "VectorFolder.hpp"
 
 class LinkedFolder
 {
@@ -22,6 +25,7 @@ private:
     size_t indexOf(const std::string& filename) const;
 
 public:
+    LinkedFolder() = default;
     /**
      * @brief Gets the total number of files currently in the folder.
      * @return The count of files as a size_t.

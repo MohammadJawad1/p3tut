@@ -1,8 +1,13 @@
+//Mohammad Jawad
+//10/21/2025
+//vectorfolder header
 #pragma once
 #include <vector>
 #include <string>
 #include <stdexcept>
 #include <cstddef>
+#include <vector>
+#include <memory>
 #include "File.hpp"
 #include "LinkedList.hpp"
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "stb_image.h"
 #include "File.hpp"
 #include "ImageFile.hpp"
 #include "TextFile.hpp"

@@ -1,3 +1,6 @@
+//Mohammad Jawad
+//10/21/2025
+//vector folder implementation
 #include "VectorFolder.hpp"
 /**
  * @brief Finds the index of a file with the given filename.
